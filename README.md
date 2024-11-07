@@ -1,5 +1,10 @@
 # DevSecOps-Project-Netflix
-DevSecOps Project to setup Netflix clone on AWS using CICD, Jenkins, Docker, SonarQube, Prometheus, Grafana 
+**DevSecOps Project to setup Netflix clone on AWS using CICD, Jenkins, Docker, SonarQube, Prometheus, Grafana**
+
+   ![image](https://github.com/user-attachments/assets/8a914376-1a18-4ab8-ba3e-b3c4d261b6a3)
+
+   ![Netflix-Page](https://github.com/user-attachments/assets/db6f3877-4d3f-4dec-b1d2-7008dd70635b)
+
 
 
 # Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
@@ -10,6 +15,9 @@ DevSecOps Project to setup Netflix clone on AWS using CICD, Jenkins, Docker, Son
 
 - Launch an EC2 instance on AWS with Ubuntu 22.04.
 - Connected instance using SSH.
+
+   ![netflix-1](https://github.com/user-attachments/assets/1cd27d5c-f8f4-4018-b413-bb10d41fb843)
+
 
 **Step 2: Clone the Code:**
 
@@ -46,6 +54,27 @@ DevSecOps Project to setup Netflix clone on AWS using CICD, Jenkins, Docker, Son
 
 It will show an error cause need to give API key
 
+
+**Step 4: Get the API Key:**
+
+- Open a web browser and navigate to TMDB (The Movie Database) website.
+- Click on "Login" and create an account.
+- Once logged in, go to your profile and select "Settings."
+- Click on "API" from the left-side panel.
+- Create a new API key by clicking "Create" and accepting the terms and conditions.
+- Provide the required basic details and click "Submit."
+- You will receive your TMDB API key.
+
+Now recreate the Docker image with your api key:
+```
+docker build --build-arg TMDB_V3_API_KEY=<your-api-key> -t netflix .
+```
+
+**Acces Netflix on your Browser By pasting your IP Address with port <IpAddress>:8081**
+
+![netflix-2](https://github.com/user-attachments/assets/d9e0bc81-79ef-4565-8911-9a3c7042202f)
+
+
 **Phase 2: Security**
 
 1. **Install SonarQube and Trivy:**
@@ -60,6 +89,10 @@ It will show an error cause need to give API key
         To access: 
         
         publicIP:9000 (by default username & password is admin)
+
+
+   ![sonar-qube](https://github.com/user-attachments/assets/d6c0f6ff-c0eb-4378-9009-145e8b319aed)
+
         
         To install Trivy:
         ```
@@ -74,7 +107,7 @@ It will show an error cause need to give API key
         ```
         trivy image <imageid>
         ```
-2. **Integrate SonarQube and Configure:**
+3. **Integrate SonarQube and Configure:**
     - Integrate SonarQube with your CI/CD pipeline.
     - Configure SonarQube to analyze code for quality and security issues.
 
@@ -190,6 +223,13 @@ pipeline {
     }
 }
 ```
+
+
+
+![pipeline](https://github.com/user-attachments/assets/674bde97-2da0-495e-a217-d5d5a0287cad)
+
+
+
 
 
 Certainly, here are the instructions without step numbers:
@@ -324,6 +364,12 @@ sudo systemctl restart jenkins
 
 ```
 
+
+![netflix-4 2](https://github.com/user-attachments/assets/f5d9b2dc-1385-4408-a2d9-e428c43edde7)
+
+
+
+
 **Phase 4: Monitoring**
 
 1. **Install Prometheus and Grafana:**
@@ -418,6 +464,7 @@ sudo systemctl restart jenkins
 
    `http://<your-server-ip>:9090`
 
+
    **Installing Node Exporter:**
 
    Create a system user for Node Exporter and download Node Exporter:
@@ -481,8 +528,8 @@ sudo systemctl restart jenkins
 
    You can access Node Exporter metrics in Prometheus.
 
-
-2. **Configure Prometheus Plugin Integration:**
+ 
+3. **Configure Prometheus Plugin Integration:**
 
    Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
 
@@ -522,6 +569,9 @@ sudo systemctl restart jenkins
    You can access Prometheus targets at:
 
    `http://<your-prometheus-ip>:9090/targets`
+
+
+  ![netflix-5](https://github.com/user-attachments/assets/d0ef4d06-28d0-4d22-b40a-2982da2b2dc9)
 
 
 ####Grafana
@@ -638,6 +688,13 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 2. **Configure Prometheus Plugin Integration:**
     - Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
+
+![netflix-6](https://github.com/user-attachments/assets/5c3a5b08-94fe-49a2-ba76-33a3f0935fdb)
+
   
 **DockerHub**
   - You can check the image has been available on my Dockerhub [DOCKERHUB](https://hub.docker.com/repository/docker/challanikhil48647/netflix/general)
+
+
+  ![image](https://github.com/user-attachments/assets/52e14409-3c73-4cd1-a147-a3ac19a2792d)
+
