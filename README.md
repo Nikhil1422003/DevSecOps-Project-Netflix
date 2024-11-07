@@ -638,3 +638,6 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 2. **Configure Prometheus Plugin Integration:**
     - Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
+  
+**DockerHub**
+  - You can check the image has been available on my Dockerhub [DOCKERHUB](https://hub.docker.com/repository/docker/challanikhil48647/netflix/general)
